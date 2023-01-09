@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+  color: white;
+}
