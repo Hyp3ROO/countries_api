@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar'
 const App = () => {
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
+  const [selectedRegion, setSelectedRegion] = useState('')
   const [loading, setLoading] = useState(false)
 
   const fetchCountries = async () => {
@@ -26,8 +27,8 @@ const App = () => {
     const countryRegionLower = country.region.toLowerCase()
 
     return (
-      countryNameLower.includes(search.toLowerCase()) ||
-      countryRegionLower.includes(search.toLowerCase())
+      countryNameLower.includes(search.toLowerCase()) &&
+      countryRegionLower.includes(selectedRegion.toLowerCase())
     )
   })
 
@@ -35,7 +36,10 @@ const App = () => {
     <div className='w-full min-h-screen bg-secondary'>
       <NavBar />
       <SearchBar search={search} setSearch={setSearch} />
-      <RegionFilter search={search} setSearch={setSearch} />
+      <RegionFilter
+        selectedRegion={selectedRegion}
+        setSelectedRegion={setSelectedRegion}
+      />
       {loading ? (
         <p className='mt-10 text-center'>Loading...</p>
       ) : (

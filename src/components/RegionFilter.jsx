@@ -1,12 +1,12 @@
 import { React, useState } from 'react'
 
-const RegionFilter = ({ search, setSearch }) => {
+const RegionFilter = ({ selectedRegion, setSelectedRegion }) => {
   return (
     <div className='mt-10 mx-4'>
       <select
         className='px-6 py-3 bg-primary rounded-md text-sm'
-        value={search}
-        onChange={e => setSearch(e.target.value)}>
+        value={selectedRegion}
+        onChange={e => setSelectedRegion(e.target.value)}>
         <option value='' hidden>
           Filter by Region
         </option>
