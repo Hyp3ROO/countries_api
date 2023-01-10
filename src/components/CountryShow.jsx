@@ -8,7 +8,7 @@ const CountryShow = ({ country }) => {
         <h2 className='pb-4 text-xl font-bold'>{country.name}</h2>
         <p className='py-1 text-sm'>
           <span className='font-bold mr-1'>Population:</span>
-          {country.population}
+          {country.population.toLocaleString('en-US')}
         </p>
         <p className='py-1 text-sm'>
           <span className='font-bold mr-1'>Region:</span>

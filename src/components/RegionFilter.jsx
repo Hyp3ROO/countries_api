@@ -10,11 +10,24 @@ const RegionFilter = ({ selectedRegion, setSelectedRegion }) => {
         <option className='font-bold' value='' hidden>
           Filter by Region
         </option>
-        <option className='font-bold' value='Africa'>Africa</option>
-        <option className='font-bold' value='America'>America</option>
-        <option className='font-bold' value='Asia'>Asia</option>
-        <option className='font-bold' value='Europe'>Europe</option>
-        <option className='font-bold' value='Oceania'>Oceania</option>
+        <option className='font-bold' value=''>
+          All
+        </option>
+        <option className='font-bold' value='Africa'>
+          Africa
+        </option>
+        <option className='font-bold' value='America'>
+          America
+        </option>
+        <option className='font-bold' value='Asia'>
+          Asia
+        </option>
+        <option className='font-bold' value='Europe'>
+          Europe
+        </option>
+        <option className='font-bold' value='Oceania'>
+          Oceania
+        </option>
       </select>
     </div>
   )

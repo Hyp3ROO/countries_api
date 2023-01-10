@@ -24,7 +24,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    switch(theme) {
+    switch (theme) {
       case 'dark':
         document.body.classList.add('dark')
         break
