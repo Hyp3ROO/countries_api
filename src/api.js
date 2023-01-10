@@ -19,7 +19,7 @@ const getCountries = async () => {
     //   currencies: Object.values(country?.currencies),
       languages: country?.languages,
       borders: country?.borders,
-      flag: country?.flags.png
+      flag: country?.flags.svg
     }
     countriesArr.push(countryInfo)
   })
