@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const CountryShow = ({ country }) => {
   return (
-    <Link to={`/${country.name.common.toLowerCase()}`}>
+    <Link to={`/${country?.name.common.toLowerCase()}`}>
       <div className='bg-primary text-lightText rounded-md overflow-hidden dark:bg-darkPrimary dark:text-primary'>
         <img
           className='w-full'
