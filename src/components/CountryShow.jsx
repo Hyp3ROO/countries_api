@@ -6,7 +6,7 @@ const CountryShow = ({ country }) => {
     <Link to={`/${country?.name.common.toLowerCase()}`}>
       <div className='bg-primary text-lightText rounded-md overflow-hidden dark:bg-darkPrimary dark:text-primary'>
         <img
-          className='w-full'
+          className='w-[300px] h-[150px] object-cover'
           src={country?.flags.svg}
           alt={country?.name.common}
         />

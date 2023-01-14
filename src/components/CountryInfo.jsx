@@ -21,10 +21,12 @@ const CountryInfo = ({ theme }) => {
     if (name) {
       fetchOneCountry(currentLocation.pathname)
     }
-  }, [])
+  }, [name])
+
+  console.log(countryDetails)
 
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen pb-10'>
       <Link
         to='/'
         className='inline-flex gap-2 items-center justify-between m-5 px-7 py-2 rounded-md bg-primary text-lightText hover:bg-gray-200 duration-300 dark:bg-darkPrimary dark:text-primary dark:hover:bg-slate-600'>
@@ -88,6 +90,14 @@ const CountryInfo = ({ theme }) => {
                 </li>
               </ul>
             </div>
+            <h2 className='text-lg'>Border Countries:</h2>
+            <ul className='flex justify-around items-center gap-2 flex-wrap'>
+              {countryDetails?.borders.map(border => (
+                <li className='mt-4 px-6 py-2 rounded-md bg-primary dark:bg-darkPrimary'>
+                  {border}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       )}
