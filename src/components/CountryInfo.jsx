@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { getOneCountry } from '../api'
 import { Link, useParams } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
+import Loading from 'react-simple-loading'
 
-const CountryInfo = () => {
+const CountryInfo = ({ theme }) => {
   const { name } = useParams()
   const [countryDetails, setCountryDetails] = useState({})
   const [loading, setLoading] = useState(true)
@@ -31,7 +32,13 @@ const CountryInfo = () => {
         Back
       </Link>
       {loading ? (
-        <p className='mt-10 text-center'>Loading...</p>
+        <div className='mt-20'>
+          <Loading
+            color={theme === 'dark' ? 'white' : 'black'}
+            size={'100px'}
+            stroke={'10px'}
+          />
+        </div>
       ) : (
         <div className='w-full grid place-items-center mt-6 px-8 text-lightText dark:text-primary md:flex md:justify-evenly md:mt-16'>
           <img

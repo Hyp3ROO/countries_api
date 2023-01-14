@@ -2,6 +2,7 @@ import React from 'react'
 import RegionFilter from './RegionFilter'
 import SearchBar from './SearchBar'
 import CountryList from './CountryList'
+import Loading from 'react-simple-loading'
 
 const Main = ({
   filteredCountries,
@@ -10,6 +11,7 @@ const Main = ({
   selectedRegion,
   setSelectedRegion,
   loading,
+  theme,
 }) => {
   return (
     <>
@@ -21,7 +23,13 @@ const Main = ({
         />
       </div>
       {loading ? (
-        <p className='mt-10 text-center'>Loading...</p>
+        <div className='mt-20'>
+          <Loading
+            color={theme === 'dark' ? 'white' : 'black'}
+            size={'100px'}
+            stroke={'10px'}
+          />
+        </div>
       ) : (
         <CountryList countryList={filteredCountries} />
       )}

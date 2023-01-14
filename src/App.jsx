@@ -4,6 +4,7 @@ import { getCountries } from './api'
 import CountryInfo from './components/CountryInfo'
 import Main from './components/Main'
 import NavBar from './components/NavBar'
+import useDebounceSearch from './hooks/use-debounce-search'
 
 const App = () => {
   const [countries, setCountries] = useState([])
@@ -11,6 +12,7 @@ const App = () => {
   const [selectedRegion, setSelectedRegion] = useState('')
   const [theme, setTheme] = useState('dark')
   const [loading, setLoading] = useState(false)
+  const debounceSearch = useDebounceSearch(search)
 
   const fetchCountries = async () => {
     setLoading(true)
@@ -24,7 +26,7 @@ const App = () => {
     const countryRegionLower = country.region.toLowerCase()
 
     return (
-      countryNameLower.includes(search.toLowerCase()) &&
+      countryNameLower.includes(debounceSearch.toLowerCase()) &&
       countryRegionLower.includes(selectedRegion.toLowerCase())
     )
   })
@@ -62,12 +64,13 @@ const App = () => {
               selectedRegion={selectedRegion}
               setSelectedRegion={setSelectedRegion}
               loading={loading}
+              theme={theme}
             />
           }
         />
         <Route
           path='/:name'
-          element={<CountryInfo />}
+          element={<CountryInfo theme={theme} />}
         />
       </Routes>
     </div>
