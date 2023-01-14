@@ -8,6 +8,7 @@ const CountryInfo = ({ theme }) => {
   const { name } = useParams()
   const [countryDetails, setCountryDetails] = useState({})
   const [loading, setLoading] = useState(true)
+  const currentLocation = new URL(window.location)
 
   const fetchOneCountry = async country => {
     setLoading(true)
@@ -18,10 +19,9 @@ const CountryInfo = ({ theme }) => {
 
   useEffect(() => {
     if (name) {
-      const currentLocation = new URL(window.location)
       fetchOneCountry(currentLocation.pathname)
     }
-  }, [name])
+  }, [])
 
   return (
     <div className='min-h-screen'>
