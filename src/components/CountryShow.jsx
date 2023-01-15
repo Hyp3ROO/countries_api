@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const CountryShow = ({ country }) => {
   return (
     <Link to={`/${country?.name.common.toLowerCase()}`}>
       <div className='bg-primary text-lightText rounded-md overflow-hidden dark:bg-darkPrimary dark:text-primary'>
-        <img
+        <LazyLoadImage
           className='w-[300px] h-[150px] object-cover'
           src={country?.flags.svg}
           alt={country?.name.common}

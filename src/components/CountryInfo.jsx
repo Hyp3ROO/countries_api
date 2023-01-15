@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getOneCountry } from '../api'
 import { Link, useParams } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Loading from 'react-simple-loading'
 
 const CountryInfo = ({ theme }) => {
@@ -23,8 +24,6 @@ const CountryInfo = ({ theme }) => {
     }
   }, [name])
 
-  console.log(countryDetails)
-
   return (
     <div className='min-h-screen pb-10'>
       <Link
@@ -43,7 +42,7 @@ const CountryInfo = ({ theme }) => {
         </div>
       ) : (
         <div className='w-full grid place-items-center mt-6 px-8 text-lightText dark:text-primary md:flex md:justify-evenly md:mt-16'>
-          <img
+          <LazyLoadImage
             className='w-[100%] md:w-[60%] md:max-w-[40rem]'
             src={countryDetails?.flags.svg}
             alt={countryDetails?.name.common}
@@ -92,8 +91,8 @@ const CountryInfo = ({ theme }) => {
             </div>
             <h2 className='text-lg'>Border Countries:</h2>
             <ul className='flex justify-around items-center gap-2 flex-wrap'>
-              {countryDetails?.borders.map(border => (
-                <li className='mt-4 px-6 py-2 rounded-md bg-primary dark:bg-darkPrimary'>
+              {countryDetails?.borders?.map(border => (
+                <li className='mt-4 px-6 py-2 rounded-md bg-primary dark:bg-darkPrimary' key={border}>
                   {border}
                 </li>
               ))}

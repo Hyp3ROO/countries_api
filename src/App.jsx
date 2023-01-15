@@ -20,7 +20,7 @@ const App = () => {
     setCountries(allCountries)
     setLoading(false)
   }
-  
+
   const filteredCountries = countries.filter(country => {
     const countryNameLower = country.name.common.toLowerCase()
     const countryRegionLower = country.region.toLowerCase()
@@ -68,10 +68,7 @@ const App = () => {
             />
           }
         />
-        <Route
-          path='/:name'
-          element={<CountryInfo theme={theme} />}
-        />
+        <Route path='/:name' element={<CountryInfo theme={theme} />} />
       </Routes>
     </div>
   )

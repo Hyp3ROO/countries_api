@@ -8,7 +8,7 @@ const getCountries = async () => {
 }
 
 const getOneCountry = async country => {
-  const response = await axios.get(`${apiURL}name/${country}`)
+  const response = await axios.get(`${apiURL}name${country}`)
   return response.data
 }
 
