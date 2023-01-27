@@ -1,7 +1,7 @@
 import React from 'react'
-import RegionFilter from './RegionFilter'
-import SearchBar from './SearchBar'
-import CountryList from './CountryList'
+import RegionFilter from '../components/RegionFilter'
+import SearchBar from '../components/SearchBar'
+import CountryList from '../components/CountryList'
 import Loading from 'react-simple-loading'
 
 const Main = ({

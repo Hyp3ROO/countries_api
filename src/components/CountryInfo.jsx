@@ -9,7 +9,6 @@ const CountryInfo = ({ theme }) => {
   const { name } = useParams()
   const [countryDetails, setCountryDetails] = useState({})
   const [loading, setLoading] = useState(true)
-  const currentLocation = new URL(window.location)
 
   const fetchOneCountry = async country => {
     setLoading(true)
@@ -20,7 +19,7 @@ const CountryInfo = ({ theme }) => {
 
   useEffect(() => {
     if (name) {
-      fetchOneCountry(currentLocation.pathname)
+      fetchOneCountry(name)
     }
   }, [name])
 
@@ -28,7 +27,7 @@ const CountryInfo = ({ theme }) => {
     <div className='min-h-screen pb-10'>
       <Link
         to='/'
-        className='inline-flex gap-2 items-center justify-between m-5 px-7 py-2 rounded-md bg-primary text-lightText hover:bg-gray-200 duration-300 dark:bg-darkPrimary dark:text-primary dark:hover:bg-slate-600'>
+        className='inline-flex gap-2 items-center justify-between m-5 px-7 py-2 rounded-md bg-primary text-lightText hover:bg-gray-300 duration-300 dark:bg-darkPrimary dark:text-primary dark:hover:bg-slate-600'>
         <AiOutlineArrowLeft className='w-5 h-5' />
         Back
       </Link>
@@ -90,11 +89,14 @@ const CountryInfo = ({ theme }) => {
               </ul>
             </div>
             <h2 className='text-lg'>Border Countries:</h2>
-            <ul className='flex justify-around items-center gap-2 flex-wrap'>
+            <ul className='grid grid-cols-2 gap-2 lg:grid-cols-4'>
               {countryDetails?.borders?.map(border => (
-                <li className='mt-4 px-6 py-2 rounded-md bg-primary dark:bg-darkPrimary' key={border}>
-                  {border}
-                </li>
+                <Link to={`/details/${border}`} key={border}>
+                  <li
+                    className='mt-4 px-6 py-2 text-center rounded-md bg-primary dark:bg-darkPrimary hover:bg-gray-300 dark:hover:bg-slate-600 duration-300'>
+                    {border}
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>

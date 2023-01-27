@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { getCountries } from './api'
 import CountryInfo from './components/CountryInfo'
-import Main from './components/Main'
+import Main from './pages/Main'
 import NavBar from './components/NavBar'
 import useDebounceSearch from './hooks/use-debounce-search'
 
@@ -68,7 +68,12 @@ const App = () => {
             />
           }
         />
-        <Route path='/:name' element={<CountryInfo theme={theme} />} />
+        <Route
+          path='/details/:name'
+          element={
+            <CountryInfo theme={theme} />
+          }
+        />
       </Routes>
     </div>
   )
