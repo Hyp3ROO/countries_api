@@ -5,7 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 const CountryShow = ({ country }) => {
   return (
     <Link to={`/details/${country?.cca3}`}>
-      <div className='bg-primary text-lightText rounded-md overflow-hidden dark:bg-darkPrimary dark:text-primary'>
+      <div className='bg-primary text-lightText rounded-md overflow-hidden dark:bg-darkPrimary dark:text-primary hover:scale-105 duration-300'>
         <LazyLoadImage
           className='w-[300px] h-[150px] object-cover'
           src={country?.flags.svg}
